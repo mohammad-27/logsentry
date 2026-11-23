@@ -1,0 +1,29 @@
+
+
+title: Linux SSH Brute Force and Shadow File Access
+id: 8f3a9b2c-1d4e-5f6a-7b8c-9d0e1f2a3b4c
+status: stable
+description: Detects SSH brute force attempts and suspicious access to the shadow file via sudo.
+author: Detection Engineer
+date: 2023-10-27
+modified: 2023-10-27
+logsource:
+    product: linux
+    service: syslog
+detection:
+    selection_ssh_failed:
+        message|contains:
+            - 'Failed password'
+            - 'Invalid user'
+    selection_sudo_shadow:
+        message|contains:
+            - 'COMMAND=/bin/cat /etc/shadow'
+    condition: selection_ssh_failed or selection_sudo_shadow
+falsepositives:
+    - Legitimate SSH testing
+    - Administrative shadow file access
+level: high
+tags:
+    - attack.credential_access
+    - attack.t1110
+    - attack.t1003

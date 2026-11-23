@@ -1,0 +1,152 @@
+[
+  {
+    "line": "Jul 25 08:00:00 web01 sudo:   gitlab : TTY=pts/0 ; PWD=/home/gitlab ; USER=root ; COMMAND=/usr/bin/apt update",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "The log indicates a routine package update command executed via sudo, representing standard system maintenance."
+  },
+  {
+    "line": "Jul 25 08:00:05 web01 sshd[5486]: Accepted password for alice from 10.0.0.178 port 12806 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH authentication from an internal IP address suggests routine administrative access."
+  },
+  {
+    "line": "Jul 25 08:00:50 web01 sshd[3528]: Failed password for git from 198.51.100.172 port 5683 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 1,
+    "reason": "A single failed SSH authentication attempt indicates a potential unauthorized access probe."
+  },
+  {
+    "line": "Jul 25 08:01:34 web01 sshd[5036]: Accepted password for gitlab from 10.0.0.45 port 58036 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH login from an internal IP address for a standard service account."
+  },
+  {
+    "line": "Jul 25 08:02:48 web01 sshd[7689]: Accepted publickey for backup from 10.0.0.171 port 53872 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful public key authentication from an internal IP for a backup service account indicates normal operational activity."
+  },
+  {
+    "line": "Jul 25 08:03:55 web01 sshd[3952]: Accepted password for jdoe from 10.0.0.174 port 32227 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "This log entry indicates a standard successful SSH authentication from an internal IP address."
+  },
+  {
+    "line": "Jul 25 08:04:20 web01 sshd[8148]: Accepted publickey for backup from 10.0.0.35 port 39118 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH public key authentication from an internal IP address for a backup user indicates normal administrative activity."
+  },
+  {
+    "line": "Jul 25 08:05:41 web01 sshd[6112]: Accepted password for backup from 10.0.0.83 port 36205 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Internal IP authentication for a standard service account suggests legitimate scheduled maintenance activity."
+  },
+  {
+    "line": "Jul 25 08:06:40 web01 sshd[3815]: Accepted password for backup from 10.0.0.104 port 39039 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful internal SSH login for a standard service account suggests routine administrative activity."
+  },
+  {
+    "line": "Jul 25 08:07:40 web01 sshd[4538]: Accepted publickey for backup from 10.0.0.54 port 3592 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH public key authentication from an internal IP for a service account indicates normal administrative or backup activity."
+  },
+  {
+    "line": "Jul 25 08:08:47 web01 sshd[9018]: Accepted publickey for gitlab from 10.0.0.152 port 21097 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH public key authentication from an internal IP address indicates normal administrative or automated access."
+  },
+  {
+    "line": "Jul 25 08:09:32 web01 sshd[9454]: Accepted password for deploy from 10.0.0.142 port 1630 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH login from an internal IP address using a standard deployment account."
+  },
+  {
+    "line": "Jul 25 08:10:24 web01 sudo:   jdoe : TTY=pts/0 ; PWD=/home/jdoe ; USER=root ; COMMAND=/usr/bin/apt update",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "The log entry shows a user executing a standard package update command via sudo, which is routine administrative activity."
+  },
+  {
+    "line": "Jul 25 08:11:13 web01 sshd[5020]: Failed password for test from 203.0.113.168 port 21434 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 2,
+    "reason": "Failed SSH authentication from an external IP indicates potential unauthorized access or brute-force activity."
+  },
+  {
+    "line": "Jul 25 08:11:13 web01 sshd[5020]: Failed password for ftpuser from 203.0.113.168 port 13754 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 1,
+    "reason": "Single failed SSH authentication attempt for user ftpuser from an external IP address."
+  },
+  {
+    "line": "Jul 25 08:12:01 web01 sshd[7425]: Accepted password for deploy from 10.0.0.166 port 17035 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH login from an internal IP address for the deploy user indicates normal operational activity."
+  },
+  {
+    "line": "Jul 25 08:12:50 web01 sshd[6748]: Failed password for postgres from 192.0.2.96 port 7221 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 1,
+    "reason": "Failed SSH authentication for the postgres user suggests a potential brute-force attempt or configuration error."
+  },
+  {
+    "line": "Jul 25 08:12:50 web01 sshd[6748]: Failed password for postgres from 192.0.2.96 port 27699 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 2,
+    "reason": "A failed SSH authentication attempt for the postgres user indicates potential unauthorized access probing."
+  },
+  {
+    "line": "Jul 25 08:12:50 web01 sshd[6748]: Failed password for test from 192.0.2.96 port 32893 ssh2",
+    "label": "SUSPICIOUS",
+    "severity": 2,
+    "reason": "Failed SSH authentication attempt suggests potential unauthorized access or brute force activity."
+  },
+  {
+    "line": "Jul 25 08:14:06 web01 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt update",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Standard administrative command to update package lists executed via sudo."
+  },
+  {
+    "line": "Jul 25 08:15:11 web01 sudo:   jdoe : TTY=pts/1 ; PWD=/tmp ; USER=root ; COMMAND=/bin/cat /etc/shadow",
+    "label": "MALICIOUS",
+    "severity": 5,
+    "reason": "User jdoe used sudo to read /etc/shadow, which contains sensitive password hashes."
+  },
+  {
+    "line": "Jul 25 08:16:42 web01 sshd[8481]: Invalid user user from 203.0.113.59 port 41895",
+    "label": "SUSPICIOUS",
+    "severity": 2,
+    "reason": "This entry records a failed SSH login attempt using an invalid username from an external IP address, suggesting potential brute-force activity."
+  },
+  {
+    "line": "Jul 25 08:17:17 web01 sshd[4580]: Invalid user oracle from 203.0.113.230 port 24800",
+    "label": "SUSPICIOUS",
+    "severity": 2,
+    "reason": "An external IP address attempted an SSH login with a non-existent user account, indicating potential reconnaissance or brute-force activity."
+  },
+  {
+    "line": "Jul 25 08:17:44 web01 sshd[3886]: Accepted password for ubuntu from 10.0.0.171 port 56780 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "Successful SSH login from a private internal IP address indicates normal administrative activity."
+  },
+  {
+    "line": "Jul 25 08:18:33 web01 sshd[6704]: Accepted publickey for gitlab from 10.0.0.132 port 32143 ssh2",
+    "label": "BENIGN",
+    "severity": 1,
+    "reason": "This is a standard successful SSH login event using public key authentication from an internal network."
+  }
+]
