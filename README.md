@@ -1,4 +1,4 @@
-# &lt;Your Tool Name&gt;
+# &lt;logsentry&gt;
 
 An AI-powered security log triage tool. It reads security log entries and uses a
 coding language model (Qwen Coder, or any OpenAI-compatible model) to classify
